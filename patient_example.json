@@ -1,0 +1,24 @@
+{
+  "resourceType": "Patient",
+  "id": "191212-1212",
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": [
+        "Tolvansson"
+      ],
+      "given": [
+        "Tolvan"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "tolvan.tolvansson@karolinska.se"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1912-12-12"
+}

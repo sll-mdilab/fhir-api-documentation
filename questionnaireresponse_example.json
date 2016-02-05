@@ -1,0 +1,65 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "64a48146-753d-4cf9-b699-6c7deb061afc",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/191212-1212"
+  },
+  "authored": "2015-02-04T14:15:00Z",
+  "group": {
+    "linkId": "pab",
+    "title": "Preanestesibedömning",
+    "group": [
+      {
+        "linkId": "komplikationerSlakting",
+        "group": [
+          {
+            "linkId": "komplikationerSlaktingPatient",
+            "question": [
+              {
+                "linkId": "komplikationerSlaktingExisterar",
+                "text": "Har någon släkting haft komplikationer i samband med operation?",
+                "answer": [
+                  {
+                    "valueBoolean": true
+                  }
+                ]
+              },
+              {
+                "linkId": "komplikationerSlaktingBeskrivning",
+                "answer": [
+                  {
+                    "valueString": "Min far fick en komplikation i samband med en blindtarmsoperation för 3 år sedan."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "komplikationerSlaktingPersonal",
+            "question": [
+              {
+                "linkId": "komplikationerSlaktingValiderad",
+                "text": "Validerad",
+                "answer": [
+                  {
+                    "valueBoolean": true
+                  }
+                ]
+              },
+              {
+                "linkId": "komplikationerSlaktingKommentar",
+                "text": "Kommentar vårdpersonal:",
+                "answer": [
+                  {
+                    "valueString": "Denna komplikation påverkar inte riskbedömningen för ingreppet."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

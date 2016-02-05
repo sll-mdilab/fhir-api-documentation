@@ -1,0 +1,26 @@
+{
+	"resourceType": "Observation",
+	"id": "667810cf-ac01-4b11-996f-14ba817b7445",
+	"code": {
+	  "coding": [
+	    {
+	      "system": "MDC",
+	      "code": "MDC_PULS_OXIM_PULS_RATE"
+	    }
+	  ],
+	  "text": "Pulse Rate from Plethysmogram {Philips} Pulse Rate {Draeger} Pulse Oximetry Peripheral Heart Rate {GE} Pulse Rate {GE} Pulse rate (from pulse oximeter) {VIASYS} Pulse Rate {Nuvon}"
+	},
+	"subject": {
+	  "reference": "Patient/191212-1212"
+	},
+	"effectiveDateTime": "2016-03-10T08:00:00Z",
+	"performer": [
+	  {
+	    "reference": "Device/C1007-123"
+	  }
+	],
+	"valueQuantity": {
+	  "value": 83,
+	  "unit": "/min 1/min {count}/min /min 1/min {beat}/min {beats}/min /min 1/min {pulse}/min {pulses}/min"
+	}
+}
