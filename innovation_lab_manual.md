@@ -159,7 +159,7 @@ The following search parameters are applicable:
 This example retrieves the latest pulse rate measurement for a given patient.
 Search request:
 ```
-GET /fhir/Observation?code=MDC_PULS_OXIM_PULS_RATE?date=>=2015-02-04T14:00:00Z&date=<=2015-02-04T14:00:00Z&_count=1&_sort:desc=date
+GET /fhir/Observation?code=MDC_PULS_OXIM_PULS_RATE&date=>=2016-03-10T07:00:00Z&date=<=2016-03-10T09:00:00Z&_count=1&_sort:desc=date
 Authorization: Basic [auth string]
 ```
 
