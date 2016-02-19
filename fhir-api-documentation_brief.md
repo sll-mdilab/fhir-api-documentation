@@ -55,7 +55,7 @@ The following search parameters are applicable:
 This example retrieves the latest pulse rate measurement for a given patient.
 Search request:
 ```
-GET /fhir/Observation?code=MDC_PULS_OXIM_PULS_RATE&date=>=2016-02-19T14:00:00Z&date=<=2016-02-19T14:01:00Z&subject=19121212-1212
+GET /fhir/Observation?code=MDC_PULS_OXIM_PULS_RATE&date=>=2016-02-19T14:00:00Z&date=<=2016-02-19T14:01:00Z&subject=19121212-1212&_format=json
 Authorization: Basic [auth string]
 ```
 
@@ -78,9 +78,9 @@ Response body:
           "text": "Pulse Rate from Plethysmogram {Philips} Pulse Rate {Draeger} Pulse Oximetry Peripheral Heart Rate {GE} Pulse Rate {GE} Pulse rate (from pulse oximeter) {VIASYS} Pulse Rate {Nuvon}"
         },
         "subject": {
-          "reference": "Patient/191212-1212"
+          "reference": "Patient/19121212-1212"
         },
-        "effectiveDateTime": "2016-03-10T08:00:00Z",
+        "effectiveDateTime": "2016-02-19T14:00:01Z",
         "performer": [
           {
             "reference": "Device/C1007-123"
