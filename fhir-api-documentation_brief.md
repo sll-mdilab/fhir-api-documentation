@@ -47,6 +47,7 @@ Relevant fields in this resouce are
 Observation objects can be searched with the following filter parameters which are added as query-parameters in a HTTP GET request. The response is a Bundle object containing a list of the resulting Observation-resources. The resources are found under `$.entry[*].resource`.
 
 The following search parameters are applicable:
+* `subject` - The personal identification number of the patient, e.g. `subject=19121212-1212`. 
 * `date` - Refers to the `start` field. Should be a ISO 8601-formatted date-time value, optionally prefixed with an inequality operator. E. g. `date=>=2015-02-07T12:12:12Z`. This parameter can also be repeated twice with upper and lower limits to specify a range.
 * `code` - Refers to a code which vital sign was measured. Valid values are the same as for `$.code.coding[*].code`.
 * `_count` - Imposes a limit on then number of results. E. g. `_count=3`.
@@ -56,7 +57,7 @@ The following search parameters are applicable:
 This example retrieves the latest pulse rate measurement for a given patient.
 Search request:
 ```
-GET /fhir/Observation?code=MDC_PULS_OXIM_PULS_RATE?date=>=2015-02-04T14:00:00Z&date=<=2015-02-04T14:00:00Z&_count=1&_sort:desc=date
+GET /fhir/Observation?code=MDC_PULS_OXIM_PULS_RATE?date=>=2015-02-04T14:00:00Z&date=<=2015-02-04T14:00:00&subject=19121212-1212Z&_count=1&_sort:desc=date
 Authorization: Basic [auth string]
 ```
 
