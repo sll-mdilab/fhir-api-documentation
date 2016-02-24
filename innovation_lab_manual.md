@@ -27,10 +27,10 @@ Where `auth string` is derrived from "user:API_KEY" in which API_KEY should be r
 ##FHIR Resources
 ###Appointment
 #### Search
-Appointment objects can be searched with the following filter parameters which are added as query-parameters in a HTTP GET request. The response is a Bundle object containing a list of the resulting Appointment-resources. The resources are found under `$.entry[*].resource`.
+Appointment objects can be searched with the following filter parameters which are added as query-parameters in a HTTP GET request. The response is a Bundle object containing a list of the resulting Appointment-resources. The resources are found under `$.entry[*].resource`. Both the subject patient and the medical personel performing the procedure is listed under `$.entry[*].resource.participant` for which the types `SBJ` and `PPRF` are used respectively.
 
 * `date` - Refers to the `start` field. Should be a ISO 8601-formatted date-time value, optionally prefixed with an inequality operator. E. g. `date=>=2015-02-07T12:12:12Z`. This parameter can also be included twice with upper and lower limits to specify a range.
-* `status` - Refers to the `status` field. Should be a string value. E. g. `status=booked`
+* `status` - Refers to the `status` field. Should be a string value. E. g. `status=booked`. If an appointment is cancelled by the patient through his/her questionnaire answer, the `status` field should be set to `cancelled`.
 
 ```
 GET /fhir/Appointment[?parameter=value][&parameter=value][&parameter=value]...
@@ -76,12 +76,34 @@ Example response body:
               "reference": "Patient/19121212-1212",
               "display": "Tolvan Tolvansson"
             },
-            "status": "booked"
+            "type": { 
+              "coding": [
+                {
+                  "code": "SBJ",
+                  "system": "http://hl7.org/fhir/ValueSet/v3-ParticipationType"
+                }
+              ]
+            }
+          },
+          {
+            "actor": {
+              "reference": "Practitioner/19131313-1313",
+              "display": "Adam Bertilsson"
+            },
+            "type": { 
+              "coding": [
+                {
+                  "code": "PPRF",
+                  "system": "http://hl7.org/fhir/ValueSet/v3-ParticipationType"
+                }
+              ]
+            }
           }
-        ]
+        ],
+        "status": "booked"
       }
-    ]
-  }
+    }
+  ]
 }
 ```
 
@@ -224,6 +246,14 @@ Request body:
     "reference": "Patient/191212-1212"
   },
   "authored": "2016-02-04T14:15:00Z",
+  "extension" : [
+    {
+      "url":"http://sll-mdilab.net/fhir/QuestionnaireResponse#appointment",
+      "valueReference" : {
+        "reference" : "Appointment/dc689f19-7179-4101-8d23-7f62814901eb"
+      }
+    }
+  ],
   "group": {
     "linkId": "pab",
     "title": "Preanestesibedömning",
@@ -282,6 +312,14 @@ Request body:
     "reference": "Patient/191212-1212"
   },
   "authored": "2016-03-10T08:30:00Z",
+  "extension" : [
+    {
+      "url":"http://sll-mdilab.net/fhir/QuestionnaireResponse#appointment",
+      "valueReference" : {
+        "reference" : "Appointment/dc689f19-7179-4101-8d23-7f62814901eb"
+      }
+    }
+  ],
   "group": {
     "linkId": "pab",
     "title": "Preanestesibedömning",
