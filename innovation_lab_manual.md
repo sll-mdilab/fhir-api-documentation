@@ -99,8 +99,7 @@ Example response body:
               ]
             }
           }
-        ],
-        "status": "booked"
+        ]
       }
     }
   ]
