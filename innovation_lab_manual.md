@@ -57,6 +57,12 @@ Example response body:
         "resourceType": "Appointment",
         "id": "dc689f19-7179-4101-8d23-7f62814901eb",
         "status": "booked",
+        "extension" : [
+          {
+            "url":"http://sll-mdilab.net/fhir/Appointment#processedByAgent",
+            "valueBoolean" : true
+          }
+        ],
         "type": {
           "coding": [
             {
